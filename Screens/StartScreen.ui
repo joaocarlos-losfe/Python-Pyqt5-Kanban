@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProjectStart</class>
+ <widget class="QMainWindow" name="ProjectStart">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>640</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>640</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Segoe UI</family>
+    <pointsize>16</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Tarefas Sequenciais</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icone.png</normaloff>icone.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #F9FAFF;
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="title_lbl">
+          <property name="styleSheet">
+           <string notr="true">QLabel
+{
+	color: #111E61;
+	font-size: 20px;
+}</string>
+          </property>
+          <property name="text">
+           <string>Seus projetos</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item alignment="Qt::AlignVCenter">
+         <widget class="QLabel" name="tema_lbl">
+          <property name="styleSheet">
+           <string notr="true">QLabel
+{
+	color: #111E61;
+	font-size: 14px;
+	font-weight: bold;
+}</string>
+          </property>
+          <property name="text">
+           <string>Escolher tema: </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="claro_radio_btn">
+          <property name="toolTip">
+           <string>Define o tema do aplicativo para a cor clara. Recomendado para uso Diurno</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QRadioButton
+{
+	font-size: 12px;
+	color: #757CA5;
+	font-weight: bold;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+	background: transparent; 
+	padding: 0;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>sol.png</normaloff>sol.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Minimum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>16</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="escuro_radio_btn">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Define o tema do aplicativo para a cor escura. Recomendado para uso Noturno&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QRadioButton
+{
+	font-size: 12px;
+	color: #757CA5;
+	font-weight: bold;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+	background: transparent; 
+	padding: 0;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>noite.png</normaloff>noite.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QListWidget" name="projetos_list_view">
+        <property name="toolTip">
+         <string>Lista do seus projetos salvos até o momento</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QListWidget
+{
+	background: white;
+	padding: 5px;
+	border: 4px solid #D7E0EF;
+	border-radius: 5px;
+	color: #757CA5;
+	font-size: 20px;
+	font-weight: bold;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="carregar_btn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Carrega um projeto selecionado</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+	background-color: #388BC7;
+	color: white;
+	font-weight: bold;
+	padding: 10px 30px ;
+	font-size: 14px;
+	border-radius: 15px;
+}
+
+QPushButton:hover
+{
+   background-color:#3D95A9;
+}
+
+QPushButton:pressed 
+{
+     background-color: #85B2BC;     
+ }</string>
+        </property>
+        <property name="text">
+         <string>CARREGAR </string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Minimum</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>30</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="titulo_projeto_input">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+{
+	background: white;
+	padding: 5px;
+	border: 4px solid #D7E0EF;
+	border-radius: 5px;
+	color: #757CA5;
+	font-size: 12px;
+	font-weight: bold;
+}</string>
+        </property>
+        <property name="maxLength">
+         <number>50</number>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string>Digite um titulo de projeto</string>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QPushButton" name="criar_btn">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cria um novo projeto com o titulo definido na caixa de texto&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+	background-color: #388BC7;
+	color: white;
+	font-weight: bold;
+	padding: 10px 30px;
+	font-size: 12px;
+	border-radius: 15px;
+}
+
+QPushButton:hover
+{
+   background-color:#3D95A9;
+}
+
+QPushButton:pressed 
+{
+     background-color: #85B2BC;     
+ }</string>
+        </property>
+        <property name="text">
+         <string>CRIAR</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

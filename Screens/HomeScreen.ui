@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainWindow</class>
+ <widget class="QMainWindow" name="mainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>613</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Segoe UI</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Tarefas sequenciais</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../Assets/icone.png</normaloff>../Assets/icone.png</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #F9FAFF;</string>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background: #F9FAFF;
+</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_12">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <widget class="QPushButton" name="project_list_btn">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+	padding: 1px 1px;
+	font-size: 12px;
+	border-radius: 5px;
+}
+
+QPushButton:hover
+{
+   background-color:#F9FAFF;
+}
+
+QPushButton:pressed 
+{
+     background-color: #85B2BC;     
+ }</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../Assets/projects.png</normaloff>../Assets/projects.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="title_lbl">
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel
+{
+	color: #111E61;
+	font-size: 20px;
+}</string>
+          </property>
+          <property name="text">
+           <string>Suas tarefas</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="back_task_btn">
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	font-size: 12px;
+	border-radius: 5px;
+	margin: 0px 5px;
+}
+
+QPushButton:hover
+{
+   background-color:#F9FAFF;
+}
+
+QPushButton:pressed 
+{
+     background-color: #85B2BC;     
+ }</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../Assets/back.png</normaloff>../Assets/back.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="details_task_btn">
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	font-size: 12px;
+	border-radius: 5px;
+	margin: 0px 5px;
+}
+
+QPushButton:hover
+{
+   background-color:#F9FAFF;
+}
+
+QPushButton:pressed 
+{
+     background-color: #85B2BC;     
+ }</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../Assets/details.png</normaloff>../Assets/details.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="delete_task_btn">
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	font-size: 12px;
+	border-radius: 5px;
+	margin: 0px 5px;
+}
+
+QPushButton:hover
+{
+   background-color:#F9FAFF;
+}
+
+QPushButton:pressed 
+{
+     background-color: #85B2BC;     
+ }</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../Assets/delete.png</normaloff>../Assets/delete.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <item>
+           <widget class="QLabel" name="new_task_lbl">
+            <property name="font">
+             <font>
+              <family>Segoe UI</family>
+              <pointsize>-1</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel
+{
+	color: #111E61;
+	font-size: 14px;
+	font-weight: bold;
+}</string>
+            </property>
+            <property name="text">
+             <string>Nova tarefa</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="new_task_input">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTextEdit
+{
+	background: white;
+	padding: 5px;
+	border: 1px solid #111E61;
+	border-radius: 5px;
+	color: #757CA5;
+	font-size: 14px;
+	font-weight: bold;
+}</string>
+            </property>
+            <property name="placeholderText">
+             <string>Digite a nova tarefa aqui...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="add_task_btn">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton
+{
+	background-color: #388BC7;
+	color: white;
+	font-weight: bold;
+	padding: 10px 30px;
+	font-size: 12px;
+	border-radius: 15px;
+}
+
+QPushButton:hover
+{
+   background-color:#3D95A9;
+}
+
+QPushButton:pressed 
+{
+     background-color: #85B2BC;     
+ }</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../Assets/add.png</normaloff>../Assets/add.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QListWidget" name="listview_new_task">
+            <property name="styleSheet">
+             <string notr="true">QListWidget
+{
+	background: white;
+	padding: 5px;
+	border: 4px solid #D7E0EF;
+	border-radius: 5px;
+	color: #757CA5;
+	font-size: 20px;
+	font-weight: bold;
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_19">
+          <item>
+           <widget class="QPushButton" name="task_to_in_progress_btn">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton
+{
+	background-color: #388BC7;
+	color: white;
+	font-weight: bold;
+	padding: 10px 30px;
+	font-size: 12px;
+	border-radius: 15px;
+}
+
+QPushButton:hover
+{
+   background-color:#3D95A9;
+}
+
+QPushButton:pressed 
+{
+     background-color: #85B2BC;     
+ }</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../Assets/next.png</normaloff>../Assets/next.png</iconset>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_16">
+          <item>
+           <widget class="QLabel" name="in_progress_lbl">
+            <property name="font">
+             <font>
+              <family>Segoe UI</family>
+              <pointsize>-1</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel
+{
+	color: #111E61;
+	font-size: 14px;
+	font-weight: bold;
+}</string>
+            </property>
+            <property name="text">
+             <string>Em progresso</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="listview_in_progress">
+            <property name="styleSheet">
+             <string notr="true">QListWidget
+{
+	background: white;
+	padding: 5px;
+	border: 4px solid #D7E0EF;
+	border-radius: 5px;
+	color: #757CA5;
+	font-size: 20px;
+	font-weight: bold;
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="in_progress_to_concluded_btn">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+	background-color: #388BC7;
+	color: white;
+	font-weight: bold;
+	padding: 10px 30px;
+	font-size: 12px;
+	border-radius: 15px;
+}
+
+QPushButton:hover
+{
+   background-color:#3D95A9;
+}
+
+QPushButton:pressed 
+{
+     background-color: #85B2BC;     
+ }</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../Assets/next.png</normaloff>../Assets/next.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_20"/>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_17">
+          <item>
+           <widget class="QLabel" name="concluded_lbl">
+            <property name="font">
+             <font>
+              <family>Segoe UI</family>
+              <pointsize>-1</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel
+{
+	color: #111E61;
+	font-size: 14px;
+	font-weight: bold;
+}</string>
+            </property>
+            <property name="text">
+             <string>Concluidos</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="listview_concluded">
+            <property name="styleSheet">
+             <string notr="true">QListWidget
+{
+	background: white;
+	padding: 5px;
+	border: 4px solid #D7E0EF;
+	border-radius: 5px;
+	color: #757CA5;
+	font-size: 20px;
+	font-weight: bold;
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
