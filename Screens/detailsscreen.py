@@ -6,8 +6,6 @@ class Ui_DetailsScreen(object):
     def __init__(self, theme, list_details):
         self.defined_theme = theme
         self.list_details = list_details
-        print(self.defined_theme.theme_description)
-
 
     def setupUi(self, DetailsScreen):
         DetailsScreen.setObjectName("DetailsScreen")

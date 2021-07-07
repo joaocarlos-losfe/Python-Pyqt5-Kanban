@@ -4,6 +4,7 @@ import os
 from generate_id import GenerateId
 
 
+
 print(str(datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")))
 """
 print("Teste de colisao: ")

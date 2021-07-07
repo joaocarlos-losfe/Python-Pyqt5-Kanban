@@ -43,8 +43,16 @@ class HomeScreen():
                 self.ui = Ui_DetailsScreen(self.defined_theme, details)
                 self.ui.setupUi(self.home_window)
                 self.home_window.show()
-                
 
+                #self.clear_selections()
+
+
+    def clear_selections(self):
+        self.selected_list_view = None
+        self.listview_new_task.clearSelection()
+        self.listview_in_progress.clearSelection()
+        self.listview_concluded.clearSelection()
+        self.hide_action_buttons()
 
     def update_number_of_tasks(self):
         self.new_task_lbl.setText(f"Nova tarefa ({str(len(self._new_tasks))} tarefas)")
@@ -81,6 +89,7 @@ class HomeScreen():
                 self.listview_new_task.addItem(item)
 
             self.update_number_of_tasks()
+            self.clear_selections()
 
 
     def delete_project(self):
@@ -118,13 +127,7 @@ class HomeScreen():
                     self._concluded.pop(row)
 
 
-            self.selected_list_view = None
-            self.hide_action_buttons()
-
-            self.listview_new_task.clearSelection()
-            self.listview_in_progress.clearSelection()
-            self.listview_concluded.clearSelection()
-
+            self.clear_selections()
             self.update_number_of_tasks()
 
 
@@ -157,6 +160,8 @@ class HomeScreen():
 
                 self.update_number_of_tasks()
 
+                self.clear_selections()
+
     def move_improgress_to_concluded(self):
         if self.selected_list_view is not None:
             if self.selected_list_view is Task.IN_PROGRESS:
@@ -173,6 +178,7 @@ class HomeScreen():
                 self.listview_concluded.addItem(item)
 
                 self.update_number_of_tasks()
+                self.clear_selections()
 
     def selected_new_task(self):
         self.selected_list_view = Task.NEW_TASK
@@ -180,12 +186,11 @@ class HomeScreen():
 
     def selected_inprogress_task(self):
         self.selected_list_view = Task.IN_PROGRESS
-        print("selected: " + self.selected_list_view)
         self.show_action_buttons()
 
     def selected_concluded_task(self):
         self.selected_list_view = Task.CONCLUDED
-        print("selected: " + self.selected_list_view)
+
         self.show_action_buttons()
 
     def show_action_buttons(self):
