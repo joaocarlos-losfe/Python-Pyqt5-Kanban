@@ -1,6 +1,7 @@
-class StringCheck():
-    @staticmethod
-    def is_space_or_null(string):
+class StringCheck:
+
+    @classmethod
+    def is_space_or_null(cls, string):
         is_invalid = False
 
         if len(string) == 0:
@@ -12,4 +13,5 @@ class StringCheck():
                 else:
                     is_invalid = False
                     break
+
         return is_invalid

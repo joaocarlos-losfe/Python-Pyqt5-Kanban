@@ -2,13 +2,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QEvent
 from PyQt5.QtWidgets import QMessageBox, QListWidgetItem
 
-from string_cheks import StringCheck
+from string_checks import StringCheck
 
 from Screens.styles import *
 
 from Screens.home import HomeScreen
 
 from Model.database import Database
+
+from Screens.dialogs import Dialogs
 
 class StartScreen():
     def __init__(self, theme):
@@ -52,11 +54,13 @@ class StartScreen():
 
     #temas
     def set_light_theme(self):
-        self.show_dialog('Tema CLARO definido. Reinicie a aplicaçao para aplicar', "Tema")
+
+        Dialogs.alert_mensage("Tema CLARO definido. Reinicie a aplicação para aplicar", "Tema")
         self.save_theme("Light Theme")
 
     def set_dark_theme(self):
-        self.show_dialog('Tema ESCURO definido. Reinicie a aplicaçao para aplicar', 'Tema')
+        Dialogs.alert_mensage("Tema ESCURO definido. Reinicie a aplicação para aplicar", "Tema")
+
         self.save_theme("Dark Theme")
 
     def save_theme(self, theme):
@@ -64,21 +68,31 @@ class StartScreen():
             arquivo = open("config.dat", "w")
             arquivo.write(theme)
         except:
-            self.show_dialog("Erro ao salvar...", "erro")
+            Dialogs.alert_mensage("Erro ao salvar", "erro")
+
+    def check_existing_task(self, text_project):
+        project_exists = False
+
+        for project in self._list_project:
+            if text_project == project:
+                return True
+
+        return project_exists
 
     #projeto
     def save_project(self):
         project_id = self.titulo_projeto_input.text()
 
-        if project_id in self._list_project:
-            self.show_dialog(f"Já existe um projeto com o nome \"{project_id}\"", "Projeto existente !!")
-        else:
-            if not StringCheck.is_space_or_null(project_id):
+        if not StringCheck.is_space_or_null(project_id):
+
+            if self.check_existing_task(project_id) == True:
+                Dialogs.alert_mensage(f"Ja existe um projeto definido como {project_id}", "Projeto existente")
+            else:
                 item = QListWidgetItem()
                 item.setText(project_id)
                 item.setTextAlignment(Qt.AlignHCenter)
                 self.projetos_list_view.addItem(item)
-                self._list_project.append(item)
+                self._list_project.append(project_id)
                 try:
                     arq = open("projects.dat", "a")
                     arq.write(item.text() + "\n")
@@ -90,28 +104,29 @@ class StartScreen():
     def delete_project(self):
         if self.projetos_list_view.currentRow() != -1:
 
-            row = self.projetos_list_view.currentRow()
-            project_id = self.projetos_list_view.currentItem().text()
-            self._list_project.pop(row)
+            if Dialogs.confirmation_mensage(f"Deseja realmente deletar o projeto \"{self.projetos_list_view.currentItem().text()}\" ?", "Deletar projeto") == True:
+                row = self.projetos_list_view.currentRow()
+                project_id = self.projetos_list_view.currentItem().text()
+                self._list_project.pop(row)
 
-            self.projetos_list_view.takeItem(self.projetos_list_view.currentRow())
-            self.projetos_list_view.clearSelection()
+                self.projetos_list_view.takeItem(self.projetos_list_view.currentRow())
+                self.projetos_list_view.clearSelection()
 
-            db = Database()
-            db.delete_project(project_id)
+                db = Database()
+                db.delete_project(project_id)
 
-            self.del_btn.setEnabled(False)
-            self.del_btn.setVisible(False)
+                self.del_btn.setEnabled(False)
+                self.del_btn.setVisible(False)
 
-            try:
-                arq = open("projects.dat", "w") #apaga e reescreve no arquivo, mais sem o dado que foi removido
-                arq = open ("projects.dat", "a")
+                try:
+                    arq = open("projects.dat", "w") #apaga e reescreve no arquivo, mais sem o dado que foi removido
+                    arq = open ("projects.dat", "a")
 
-                for project in self._list_project:
-                    arq.write(project+"\n")
+                    for project in self._list_project:
+                        arq.write(project+"\n")
 
-            except:
-                pass
+                except:
+                    pass
 
     def load_projects(self):
 
@@ -134,17 +149,6 @@ class StartScreen():
     def show_delete_btn(self):
         self.del_btn.setEnabled(True)
         self.del_btn.setVisible(True)
-
-    def show_dialog(self, mensage, title):
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
-        msg.setText(mensage)
-        msg.setWindowTitle(title)
-        msg.setStandardButtons(QMessageBox.Ok)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("Assets/icone.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        msg.setWindowIcon(icon)
-        retval = msg.exec_()
 
     def setupUi(self, StartScreen):
 

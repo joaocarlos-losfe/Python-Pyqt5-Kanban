@@ -2,11 +2,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QEvent
 from PyQt5.QtWidgets import QMessageBox, QListWidgetItem
 
-import string_cheks
+import string_checks
 from Model.database import Database
 from Model.task import Task
 
 from Screens.detailsscreen import Ui_DetailsScreen
+
+from Screens.dialogs import Dialogs
+
+from string_checks import StringCheck
 
 class HomeScreen():
     def __init__(self, theme, project_id):
@@ -94,41 +98,44 @@ class HomeScreen():
 
     def delete_project(self):
         if self.selected_list_view is not None:
-            if self.selected_list_view is Task.NEW_TASK:
-                if self.listview_new_task.currentRow() != -1:
 
-                    row = self.listview_new_task.currentRow()
-                    task = self._new_tasks[row]
+            if Dialogs.confirmation_mensage(f"Deseja realmente deletar a tarefa ?", "Deletar tarefa") == True:
 
-                    task.remove_from_data_base()
-                    self.listview_new_task.takeItem(row)
-                    self._new_tasks.pop(row)
+                if self.selected_list_view is Task.NEW_TASK:
+                    if self.listview_new_task.currentRow() != -1:
 
+                        row = self.listview_new_task.currentRow()
+                        task = self._new_tasks[row]
 
-            elif self.selected_list_view is Task.IN_PROGRESS:
-                if self.listview_in_progress.currentRow() != -1:
-
-                    row = self.listview_in_progress.currentRow()
-                    task = self._in_progress[row]
-                    task.remove_from_data_base()
-
-                    self.listview_in_progress.takeItem(row)
-                    self._in_progress.pop(row)
+                        task.remove_from_data_base()
+                        self.listview_new_task.takeItem(row)
+                        self._new_tasks.pop(row)
 
 
-            elif self.selected_list_view is Task.CONCLUDED:
-                if self.listview_concluded.currentRow() != -1:
+                elif self.selected_list_view is Task.IN_PROGRESS:
+                    if self.listview_in_progress.currentRow() != -1:
 
-                    row = self.listview_concluded.currentRow()
-                    task = self._concluded[row]
+                        row = self.listview_in_progress.currentRow()
+                        task = self._in_progress[row]
+                        task.remove_from_data_base()
 
-                    task.remove_from_data_base()
-                    self.listview_concluded.takeItem(row)
-                    self._concluded.pop(row)
+                        self.listview_in_progress.takeItem(row)
+                        self._in_progress.pop(row)
 
 
-            self.clear_selections()
-            self.update_number_of_tasks()
+                elif self.selected_list_view is Task.CONCLUDED:
+                    if self.listview_concluded.currentRow() != -1:
+
+                        row = self.listview_concluded.currentRow()
+                        task = self._concluded[row]
+
+                        task.remove_from_data_base()
+                        self.listview_concluded.takeItem(row)
+                        self._concluded.pop(row)
+
+
+                self.clear_selections()
+                self.update_number_of_tasks()
 
 
     def action_connect_start(self):
@@ -232,18 +239,30 @@ class HomeScreen():
         item.setTextAlignment(Qt.AlignHCenter)
         return item
 
+    def check_existing_task(self, text_task):
+        task_exists = False
+
+        for task in self._new_tasks:
+            if task.get_text == text_task:
+                return True
+
+        return task_exists
+
     def new_task(self):
-        if not string_cheks.StringCheck.is_space_or_null(self.new_task_input.toPlainText()):
-            task = Task()
-            task.create(self.project_id, self.new_task_input.toPlainText())
-            item = QListWidgetItem()
-            item.setText(self.new_task_input.toPlainText())
-            item.setTextAlignment(Qt.AlignHCenter)
-            self.listview_new_task.addItem(item)
-            self._new_tasks.append(task)
+        if not StringCheck.is_space_or_null(self.new_task_input.toPlainText()):
 
-            self.update_number_of_tasks()
+            if self.check_existing_task(self.new_task_input.toPlainText()) == True:
+                Dialogs.alert_mensage(f"Ja existe uma tarefa definida como \"{self.new_task_input.toPlainText()}\"", "tarefa existe")
+            else:
+                task = Task()
+                task.create(self.project_id, self.new_task_input.toPlainText())
+                item = QListWidgetItem()
+                item.setText(self.new_task_input.toPlainText())
+                item.setTextAlignment(Qt.AlignHCenter)
+                self.listview_new_task.addItem(item)
+                self._new_tasks.append(task)
 
+                self.update_number_of_tasks()
 
     def setupUi(self, HomeScreen):
         HomeScreen.setObjectName("mainWindow")
