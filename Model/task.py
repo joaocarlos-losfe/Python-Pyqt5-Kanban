@@ -2,7 +2,6 @@ import datetime
 from generate_id import GenerateId
 from Model.database import Database
 
-
 class Task():
     #constantes
     NEW_TASK = "Nova Tarefa"

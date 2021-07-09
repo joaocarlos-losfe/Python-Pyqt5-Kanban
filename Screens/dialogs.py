@@ -17,13 +17,13 @@ class Dialogs:
 
     @classmethod
     def confirmation_mensage(self, mensage, title):
-        msgBox = QMessageBox()
-        msgBox.setIcon(QMessageBox.Information)
-        msgBox.setText(mensage)
-        msgBox.setWindowTitle(title)
-        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setText(mensage)
+        msg.setWindowTitle(title)
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
 
-        confirmation = msgBox.exec()
+        confirmation = msg.exec()
         if confirmation == QMessageBox.Yes:
             return True
         else:
