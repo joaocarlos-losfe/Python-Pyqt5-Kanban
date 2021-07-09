@@ -3,8 +3,9 @@ import pathlib
 import sqlite3
 
 from Model.querys import Query
+from singleton import Singleton
 
-class Database(Query):
+class Database(Query, metaclass = Singleton):
     def __init__(self):
         super(Database, self).__init__()
         self._db_path = pathlib.Path(__file__).parent.absolute()

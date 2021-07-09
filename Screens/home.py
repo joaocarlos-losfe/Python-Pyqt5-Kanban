@@ -446,6 +446,8 @@ class HomeScreen():
         self.verticalLayout_17 = QtWidgets.QVBoxLayout()
         self.verticalLayout_17.setObjectName("verticalLayout_17")
         self.concluded_lbl = QtWidgets.QLabel(self.centralwidget)
+        #João Carlos de Sousa Fé
+        #joaocarlos.losfe@gmail.com
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(-1)

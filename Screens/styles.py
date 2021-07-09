@@ -35,7 +35,7 @@ class LightTheme:
 
                 QPushButton:hover
                 {
-                   background-color:#F9FAFF;
+                   background-color: #B4C0CE;
                 }
 
                 QPushButton:pressed 

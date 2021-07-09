@@ -279,6 +279,8 @@ class StartScreen():
     def retranslateUi(self, ProjectStart):
         _translate = QtCore.QCoreApplication.translate
         ProjectStart.setWindowTitle(_translate("ProjectStart", "Tarefas Sequenciais"))
+        #João Carlos de Sousa Fé
+        #joaocarlos.losfe@gmail.com
         self.title_lbl.setText(_translate("ProjectStart", "Seus projetos"))
         self.tema_lbl.setText(_translate("ProjectStart", "Escolher tema: "))
         self.claro_radio_btn.setToolTip(_translate("ProjectStart", "Define o tema do aplicativo para a cor clara. Recomendado para uso Diurno"))

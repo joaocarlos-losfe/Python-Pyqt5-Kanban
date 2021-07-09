@@ -13,5 +13,6 @@ if __name__ == "__main__":
     Istyles.register(LightTheme)
     Istyles.register(DarkTheme)
 
+
     start = StartScreen(theme)
     start.show()

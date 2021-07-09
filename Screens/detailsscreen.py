@@ -164,7 +164,7 @@ class Ui_DetailsScreen(object):
 
     def retranslateUi(self, DetailsScreen):
         _translate = QtCore.QCoreApplication.translate
-        DetailsScreen.setWindowTitle(_translate("DetailsScreen", "MainWindow"))
+        DetailsScreen.setWindowTitle(_translate("DetailsScreen", "Detalhes da tarefa"))
         self.lbl_title.setText(_translate("DetailsScreen", "Detalhes da tarefa"))
         self.label_2.setText(_translate("DetailsScreen", "Pertence ao projeto: "))
         self.lbl_project_id.setText(_translate("DetailsScreen", f"{self.list_details[1]}"))
@@ -174,13 +174,3 @@ class Ui_DetailsScreen(object):
         self.lbl_movimentation_date.setText(_translate("DetailsScreen", f"{self.list_details[3]}"))
         self.label_10.setText(_translate("DetailsScreen", "Estagio do projeto: "))
         self.lbl_project_stage.setText(_translate("DetailsScreen", f"{self.list_details[4]}"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    DetailsScreen = QtWidgets.QMainWindow()
-    ui = Ui_DetailsScreen()
-    ui.setupUi(DetailsScreen)
-    DetailsScreen.show()
-    sys.exit(app.exec_())

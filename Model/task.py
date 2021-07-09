@@ -88,7 +88,7 @@ class Task():
         db = Database()
 
         if self._task_id is not None:
-            if not self._able_to_update :
+            if not self._able_to_update:
                 db.save(self._task_id, self._project_id, self._creation_date, self._move_date, self._stage, self._text)
                 self._able_to_update = True
             else:

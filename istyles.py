@@ -1,11 +1,12 @@
 import abc
+from abc import ABC
 
-class Istyles(abc.ABC):
-
+class Istyles(ABC):
     """
     define um estilo comum e padrão para
     cada tema criado e deve ser usado globalmente em toda a aplicação
     """
+    pass
 
     @abc.abstractmethod
     def style_text_input(self):
