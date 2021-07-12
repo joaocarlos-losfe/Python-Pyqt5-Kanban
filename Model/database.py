@@ -7,7 +7,6 @@ from singleton import Singleton
 
 class Database(Query, metaclass = Singleton):
     def __init__(self):
-        super(Database, self).__init__()
         self._db_path = pathlib.Path(__file__).parent.absolute()
         self._db_path = os.path.join(self._db_path, "DB")
 
@@ -32,7 +31,7 @@ class Database(Query, metaclass = Singleton):
         for task in data: #itera no conjunto
             for t in task:
                 task_info.append(t)
-            data_table[task[0]] = task_info #id da tarega
+            data_table[task[0]] = task_info #id da tarefa
             task_info = []
 
         return data_table
